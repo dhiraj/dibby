@@ -9,7 +9,6 @@ plugins {
 val properties = gradleLocalProperties(rootDir)
 val tmdbAPIKey = properties.getProperty("tmdbApiKey")
 
-//val tmdbAPIKey = gradleLocalProperties(rootDir).getProperty("tmdbApiKey")
 android {
     compileSdkVersion(31)
 
@@ -21,8 +20,6 @@ android {
         versionName = "1.0"
         buildConfigField("String","TMDB_API_KEY",tmdbAPIKey)
 
-
-//        buildConfigField "String", "TMDB_API_KEY", tmdbAPIKey
         testInstrumentationRunner  = "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
@@ -85,6 +82,7 @@ dependencies {
     debugImplementation("com.facebook.flipper:flipper-network-plugin:0.138.0")
 
     implementation("com.airbnb.android:lottie:5.0.3")
+    implementation("io.coil-kt:coil:2.0.0-rc01")
 
 }
 
