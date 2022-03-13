@@ -6,8 +6,4 @@ import androidx.lifecycle.ViewModel
 
 class TVListViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is tv Fragment"
-    }
-    val text: LiveData<String> = _text
 }

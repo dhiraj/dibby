@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.traversient.dibby.databinding.FragmentReflowBinding
+import com.traversient.dibby.databinding.FragmentTvListBinding
 
 class TVListFragment : Fragment() {
 
-    private var _binding: FragmentReflowBinding? = null
+    private var _binding: FragmentTvListBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,16 +22,12 @@ class TVListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val reflowViewModel =
+        val tvlistViewModel =
             ViewModelProvider(this).get(TVListViewModel::class.java)
 
-        _binding = FragmentReflowBinding.inflate(inflater, container, false)
+        _binding = FragmentTvListBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textReflow
-        reflowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
     }
 

@@ -84,5 +84,7 @@ dependencies {
     debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.8.1")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:0.138.0")
 
+    implementation("com.airbnb.android:lottie:5.0.3")
+
 }
 
