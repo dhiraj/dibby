@@ -68,11 +68,21 @@ dependencies {
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
 
 
+    //Room
     val roomVersion = "2.4.2"
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion") // optional - Kotlin Extensions and Coroutines support for Room
     testImplementation("androidx.room:room-testing:$roomVersion")// optional - Test helpers
     implementation("androidx.room:room-paging:2.5.0-alpha01")// optional - Paging 3 Integration
+
+    //Flipper
+    debugImplementation("com.facebook.flipper:flipper:0.138.0")
+    debugImplementation("com.facebook.soloader:soloader:0.10.3")
+    releaseImplementation("com.facebook.flipper:flipper-noop:0.138.0")
+    debugImplementation ("com.facebook.flipper:flipper-leakcanary2-plugin:0.138.0")
+    debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.8.1")
+    debugImplementation("com.facebook.flipper:flipper-network-plugin:0.138.0")
+
 }
 
