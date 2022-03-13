@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
+    kotlin("kapt")
 }
 val properties = gradleLocalProperties(rootDir)
 val tmdbAPIKey = properties.getProperty("tmdbApiKey")
@@ -23,6 +24,15 @@ android {
 
 //        buildConfigField "String", "TMDB_API_KEY", tmdbAPIKey
         testInstrumentationRunner  = "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf(
+                    "room.schemaLocation" to "$projectDir/schemas",
+                    "room.incremental" to "true",
+                    "room.expandProjection" to "true"
+                )
+            }
+        }
     }
 
     buildTypes {
@@ -56,4 +66,13 @@ dependencies {
     testImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.3")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
+
+
+    val roomVersion = "2.4.2"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion") // optional - Kotlin Extensions and Coroutines support for Room
+    testImplementation("androidx.room:room-testing:$roomVersion")// optional - Test helpers
+    implementation("androidx.room:room-paging:2.5.0-alpha01")// optional - Paging 3 Integration
 }
+
