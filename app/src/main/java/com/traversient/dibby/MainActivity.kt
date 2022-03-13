@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab?.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "API Key: ${BuildConfig.TMDB_API_KEY}", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 

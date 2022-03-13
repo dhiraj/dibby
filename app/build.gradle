@@ -3,6 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localPropertiesFile))
+
 android {
     compileSdk 31
 
@@ -13,6 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "TMDB_API_KEY", localProperties['tmdbApiKey']
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
