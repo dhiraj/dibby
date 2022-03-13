@@ -1,4 +1,4 @@
-package com.traversient.dibby.ui.reflow
+package com.traversient.dibby.ui.tv
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.traversient.dibby.databinding.FragmentReflowBinding
 
-class ReflowFragment : Fragment() {
+class TVListFragment : Fragment() {
 
     private var _binding: FragmentReflowBinding? = null
 
@@ -23,7 +23,7 @@ class ReflowFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val reflowViewModel =
-            ViewModelProvider(this).get(ReflowViewModel::class.java)
+            ViewModelProvider(this).get(TVListViewModel::class.java)
 
         _binding = FragmentReflowBinding.inflate(inflater, container, false)
         val root: View = binding.root

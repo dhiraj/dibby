@@ -1,4 +1,4 @@
-package com.traversient.dibby.ui.transform
+package com.traversient.dibby.ui.movies
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,7 +22,7 @@ import com.traversient.dibby.databinding.ItemTransformBinding
  * the [RecyclerView] using LinearLayoutManager in a small screen
  * and shows items using GridLayoutManager in a large screen.
  */
-class TransformFragment : Fragment() {
+class MoviesListFragment : Fragment() {
 
     private var _binding: FragmentTransformBinding? = null
 
@@ -35,7 +35,7 @@ class TransformFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val transformViewModel = ViewModelProvider(this).get(TransformViewModel::class.java)
+        val transformViewModel = ViewModelProvider(this).get(MoviesViewModel::class.java)
         _binding = FragmentTransformBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
