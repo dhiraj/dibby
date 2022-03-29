@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
+    id ("dagger.hilt.android.plugin")
     kotlin("kapt")
 }
 val properties = gradleLocalProperties(rootDir)
@@ -81,8 +82,25 @@ dependencies {
     debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.8.1")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:0.138.0")
 
+    //Hilt
+    implementation("com.google.dagger:hilt-android:2.41")
+    kapt("com.google.dagger:hilt-compiler:2.41")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.41")
+    kaptAndroidTest("com.google.dagger:hilt-compiler:2.41")
+    testImplementation("com.google.dagger:hilt-android-testing:2.41")
+    kaptTest("com.google.dagger:hilt-compiler:2.41")
+
+
     implementation("com.airbnb.android:lottie:5.0.3")
     implementation("io.coil-kt:coil:2.0.0-rc01")
+    implementation("com.jakewharton.timber:timber:5.0.1")
 
 }
 
+kapt{
+    correctErrorTypes = true
+}
+
+hilt{
+    enableAggregatingTask = true
+}
